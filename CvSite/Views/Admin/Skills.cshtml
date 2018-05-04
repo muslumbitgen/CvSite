@@ -1,0 +1,37 @@
+﻿@model IEnumerable<CvSite.Models.Skill>
+
+@{
+    ViewBag.Title = "Skills";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@if (TempData.Count > 0 && !String.IsNullOrEmpty(TempData["Message"].ToString()))
+{
+    @Html.Raw(TempData["Message"]);
+}
+<h2>Yetenek Bilgileri</h2>
+<p>
+    @Html.ActionLink("Yeni Yetenek Bilgileri Oluştur", "CreateSkills")
+</p>
+<div class="table-responsive">
+
+
+    <table class="table table-striped">
+        <tr>
+            <th>Yetenek Adı</th>
+            <th>Yetenek Oranı</th>
+            <th>İşlem</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.skill_ad</td>
+                <td>@item.skill_oran</td>
+                <td>@Html.ActionLink("Düzenle", "EditSkills", new { id = item.skill_id }) | @Html.ActionLink("Sil", "DeleteSkills", new { id = item.skill_id }, new { onclick = "return confirm('Yetenek Bilgileriniz silinecek. Emin misin?');" })</td>
+            </tr>
+        }
+
+    </table>
+</div>

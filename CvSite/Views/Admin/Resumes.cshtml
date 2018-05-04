@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CvSite.Models.Resume>
+
+@{
+    ViewBag.Title = "Resumes";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+@if (TempData.Count > 0 && !String.IsNullOrEmpty(TempData["Message"].ToString()))
+{
+    @Html.Raw(TempData["Message"]);
+}
+<h2>Kişisel Bilgiler</h2>
+<p>
+    @Html.ActionLink("Yeni Kişisel Bilgi Oluştur", "CreateResume")
+</p>
+<div class="table-responsive">
+
+
+    <table class="table table-striped">
+        <tr>
+            <th>Adı</th>
+            <th>Hakkında</th>
+            <th>Resim</th>
+            <th>Doğum Tarihi</th>
+            <th>Adres</th>
+           <th>İşlem</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.User.userAd</td>
+                <td>@item.res_hakkimda</td>
+               <td> <img src="@item.res_resim" width="75" class="img-circle img-responsive" alt="Alternate Text" /></td>
+                <td>@item.res_dogum_tarihi</td>
+                <td>@item.res_adres</td>
+                <td>@Html.ActionLink("Düzenle", "EditResume", new { id = item.res_id }) | @Html.ActionLink("Sil", "DeleteResume", new { id = item.res_id }, new { onclick = "return confirm('Kişisel Bilgileriniz silinecek. Emin misin?');" })</td>
+            </tr>
+        }
+
+    </table>
+</div>

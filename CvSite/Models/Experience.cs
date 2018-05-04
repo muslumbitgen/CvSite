@@ -12,14 +12,17 @@ namespace CvSite.Models
         [Key]
         public int expe_id { get; set; }
 
-        [StringLength(150)]
+        [StringLength(50)]
         public string expe_ad { get; set; }
 
-        [StringLength(250)]
-        public string expe_konum { get; set; }
+        [StringLength(50)]
+        public string expe_link { get; set; }
 
         [StringLength(50)]
         public string expe_pozisyon { get; set; }
+
+        [StringLength(50)]
+        public string expe_konum { get; set; }
 
         [StringLength(50)]
         public string expe_giris_tarihi { get; set; }

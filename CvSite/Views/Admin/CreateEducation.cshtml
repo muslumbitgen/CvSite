@@ -1,0 +1,55 @@
+﻿@model CvSite.Models.Education
+
+@{
+    ViewBag.Title = "CreateEducation";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Eğtim Bilgileri Ekleme</h2>
+
+@using (Html.BeginForm("CreateEducation", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Okul Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.edu_okul_adi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.edu_okul_adi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Bölüm", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.edu_bolum, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.edu_bolum, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Giriş Tarihi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.edu_giris_tarihi, new { htmlAttributes = new { @class = "form-control" ,type="date"} })
+                @Html.ValidationMessageFor(model => model.edu_giris_tarihi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Çıkış Tarihi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.edu_cikis_tarihi, new { htmlAttributes = new { @class = "form-control",type="date" } })
+                @Html.ValidationMessageFor(model => model.edu_cikis_tarihi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Eğtim Ekle" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

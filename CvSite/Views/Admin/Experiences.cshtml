@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CvSite.Models.Experience>
+
+@{
+    ViewBag.Title = "Experiences";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@if (TempData.Count > 0 && !String.IsNullOrEmpty(TempData["Message"].ToString()))
+{
+    @Html.Raw(TempData["Message"]);
+}
+<h2>Yetenek Bilgileri</h2>
+<p>
+    @Html.ActionLink("Yeni Tecrübe Bilgileri Oluştur", "CreateExperiences")
+</p>
+<div class="table-responsive">
+
+
+    <table class="table table-striped">
+        <tr>
+            <th>İş Yeri Adı</th>
+            <th>İş Yeri Link</th>
+            <th>Bulunduğu Pozisyon</th>
+            <th>Bulunduğu Şehir</th>
+            <th>Giriş Tarihi</th>
+            <th>Çıkış Tarihi</th>
+            <th>İşlem</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.expe_ad</td>
+                <td>@item.expe_link</td>
+                <td>@item.expe_pozisyon</td>
+                <td>@item.expe_konum</td>
+                <td>@item.expe_giris_tarihi</td>
+                <td>@item.expe_cikis_tarihi</td>
+                <td>@Html.ActionLink("Düzenle", "EditExperiences", new { id = item.expe_id }) | @Html.ActionLink("Sil", "DeleteExperiences", new { id = item.expe_id }, new { onclick = "return confirm('Tecrübe Bilgileriniz silinecek. Emin misin?');" })</td>
+            </tr>
+        }
+
+    </table>
+</div>

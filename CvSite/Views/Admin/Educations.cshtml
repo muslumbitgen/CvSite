@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CvSite.Models.Education>
+
+@{
+    ViewBag.Title = "Educations";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@if (TempData.Count > 0 && !String.IsNullOrEmpty(TempData["Message"].ToString()))
+{
+    @Html.Raw(TempData["Message"]);
+}
+<h2>Eğtim Bilgileri</h2>
+<p>
+    @Html.ActionLink("Yeni Eğtim Bilgileri Oluştur", "CreateEducation")
+</p>
+<div class="table-responsive">
+
+
+    <table class="table table-striped">
+        <tr>
+            <th>Okul Adı</th>
+            <th>Bölüm</th>
+            <th>Giriş Tarihi</th>
+            <th>Çıkış Tarihi</th>
+            <th>İşlem</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.edu_okul_adi</td>
+                <td>@item.edu_bolum</td>
+                <td>@item.edu_giris_tarihi</td>
+                <td>@item.edu_cikis_tarihi</td>
+                <td>@Html.ActionLink("Düzenle", "EditEducation", new { id = item.edu_id }) | @Html.ActionLink("Sil", "DeleteEducation", new { id = item.edu_id }, new { onclick = "return confirm('Eğtim Bilgileriniz silinecek. Emin misin?');" })</td>
+            </tr>
+        }
+
+    </table>
+</div>
