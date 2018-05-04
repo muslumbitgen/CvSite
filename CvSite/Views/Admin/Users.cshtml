@@ -22,14 +22,10 @@
             <th>Soyadı</th>
             <th>Email</th>
             <th>Telefon</th>
-            <th>Adres</th>
-            <th>Hakkında</th>
-            <th>Resim</th>
-            <th>Doğum Tarihi</th>
-            <th>Rol</th>
-            <th>Aktif</th>
             <th>Şifre</th>
             <th>Kullanıcı Adı</th>
+            <th>Rol</th>
+            <th>Aktif</th>
             <th>İşlem</th>
 
         </tr>
@@ -41,14 +37,10 @@
                 <td>@item.userSoyad</td>
                 <td>@item.userEmail</td>
                 <td>@item.userTelefon</td>
-                <td>@item.userAdres</td>
-                <td>@item.userHakkinda</td>
-                <td><img src="@item.userResim" width="75" class="img-circle img-responsive" alt="Alternate Text" /></td>
-                <td>@item.userDogumTarihi</td>
-                <td>@item.userRole</td>
-                <td><button type="button" value="@item.user_id" class="btn btn-@(item.userAktive == true ? "success" : "danger") btn-sm">@(item.userAktive == true ? "Aktif" : "Pasif")</button></td>
                 <td>@item.userSifre</td>
                 <td>@item.userKulAdi</td>
+                <td>@item.userRole</td>
+                <td><button type="button" value="@item.user_id" class="btn btn-@(item.userActive == true ? "success" : "danger") btn-sm">@(item.userActive == true ? "Aktif" : "Pasif")</button></td>
                 <td>@Html.ActionLink("Düzenle", "EditUser", new { id = item.user_id }) | @Html.ActionLink("Sil", "DeleteUser", new { id = item.user_id }, new { onclick = "return confirm('Kullanıcı silinecek. Emin misin?');" })</td>
             </tr>
         }

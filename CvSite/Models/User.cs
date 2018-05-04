@@ -13,6 +13,7 @@ namespace CvSite.Models
         public User()
         {
             Articles = new HashSet<Article>();
+            Resumes = new HashSet<Resume>();
         }
 
         [Key]
@@ -30,30 +31,21 @@ namespace CvSite.Models
         [StringLength(50)]
         public string userTelefon { get; set; }
 
-        [StringLength(250)]
-        public string userAdres { get; set; }
-
-        [StringLength(350)]
-        public string userHakkinda { get; set; }
-
-        [StringLength(250)]
-        public string userResim { get; set; }
-
         [StringLength(50)]
-        public string userDogumTarihi { get; set; }
-
-        [StringLength(50)]
-        public string userRole { get; set; }
-
-        public bool? userAktive { get; set; }
+        public string userKulAdi { get; set; }
 
         [StringLength(50)]
         public string userSifre { get; set; }
 
         [StringLength(50)]
-        public string userKulAdi { get; set; }
+        public string userRole { get; set; }
+
+        public bool? userActive { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Article> Articles { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Resume> Resumes { get; set; }
     }
 }

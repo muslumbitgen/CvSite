@@ -243,6 +243,7 @@
     <Compile Include="Models\Education.cs" />
     <Compile Include="Models\Experience.cs" />
     <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\Resume.cs" />
     <Compile Include="Models\Skill.cs" />
     <Compile Include="Models\Social.cs" />
     <Compile Include="Models\User.cs" />

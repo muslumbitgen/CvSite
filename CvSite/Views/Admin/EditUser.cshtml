@@ -50,34 +50,18 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.Label("Adres", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Kullanıcı Adı", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.userAdres, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.userAdres, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.userKulAdi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.userKulAdi, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label("Hakkında", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Şifre", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.userHakkinda, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.userHakkinda, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Resim", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="file" name="Foto" id="Foto" accept=".jpg,.png,.JPEG,.gif,.jpeg" class="form-control" />
-                @Html.ValidationMessageFor(model => model.userResim, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Doğum Tarihi", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.userDogumTarihi, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
-                @Html.ValidationMessageFor(model => model.userDogumTarihi, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.userSifre, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                @Html.ValidationMessageFor(model => model.userSifre, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -93,26 +77,12 @@
             @Html.Label("Aktif", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.DropDownListFor(model => model.userAktive, new SelectList(new List<Object> { new { value = true, text = "Evet" }, new { value = false, text = "Hayır" } }, "value", "text", true), new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.userAktive, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(model => model.userActive, new SelectList(new List<Object> { new { value = true, text = "Evet" }, new { value = false, text = "Hayır" } }, "value", "text", true), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.userActive, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            @Html.Label("Kullanıcı Adı", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.userKulAdi, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.userKulAdi, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Şifre", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.userSifre, new { htmlAttributes = new { @class = "form-control", type = "password" } })
-                @Html.ValidationMessageFor(model => model.userSifre, "", new { @class = "text-danger" })
-            </div>
-        </div>
+       
 
 
 

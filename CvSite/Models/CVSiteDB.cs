@@ -17,6 +17,7 @@ namespace CvSite.Models
         public virtual DbSet<Education> Educations { get; set; }
         public virtual DbSet<Experience> Experiences { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<Resume> Resumes { get; set; }
         public virtual DbSet<Skill> Skills { get; set; }
         public virtual DbSet<Social> Socials { get; set; }
         public virtual DbSet<User> Users { get; set; }
@@ -32,6 +33,11 @@ namespace CvSite.Models
                 .HasMany(e => e.Articles)
                 .WithOptional(e => e.User)
                 .HasForeignKey(e => e.ar_user_id);
+
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.Resumes)
+                .WithOptional(e => e.User)
+                .HasForeignKey(e => e.res_user_id);
         }
     }
 }

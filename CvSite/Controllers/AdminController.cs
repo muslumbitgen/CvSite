@@ -32,7 +32,7 @@ namespace CvSite.Controllers
             string username = form["username"].ToString();
             string password = form["password"].ToString();
             var md5pass = Crypto.Hash(password,"MD5");
-            User user = db.Users.Where(x => x.userKulAdi == username && x.userSifre == md5pass && x.userAktive == true).FirstOrDefault();
+            User user = db.Users.Where(x => x.userKulAdi == username && x.userSifre == md5pass && x.userActive == true).FirstOrDefault();
             if (user != null)
             {
                 FormsAuthentication.SetAuthCookie(user.userKulAdi, false);
@@ -67,31 +67,18 @@ namespace CvSite.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CreateUser(User newitem, HttpPostedFileBase Foto,string userSifre)
+        public ActionResult CreateUser(User newitem,string userSifre)
         {
             var md5pass = userSifre;
             if (ModelState.IsValid)
             {
-                if (Foto != null)
-                {
-                    WebImage img = new WebImage(Foto.InputStream);
-                    FileInfo fotoinfo = new FileInfo(Foto.FileName);
-
-                    string newfoto = Guid.NewGuid().ToString() + fotoinfo.Extension;
-                    img.Resize(150, 150);
-                    img.Save("~/Uploads/UyeFoto/" + newfoto);
-                    newitem.userResim = "/Uploads/UyeFoto/" + newfoto;
+               
                     newitem.userSifre = Crypto.Hash(md5pass,"MD5");
                     db.Users.Add(newitem);
                     db.SaveChanges();
                     Session["uyeid"] = newitem.user_id;
                     Session["Username"] = newitem.userKulAdi;
                     return RedirectToAction("Users", "Admin");
-                }
-                else
-                {
-                    ModelState.AddModelError("Fotoğraf", "Fotoğraf Seçiniz");
-                }
             }
             return View(newitem);
 
@@ -106,37 +93,20 @@ namespace CvSite.Controllers
             return View(item);
         }
         [HttpPost]
-        public ActionResult EditUser(User uye, string userSifre, int id, HttpPostedFileBase Foto)
+        public ActionResult EditUser(User uye, string userSifre, int id)
         {
             if (ModelState.IsValid)
             {
                 var md5pass = userSifre;
 
                 var uyes = db.Users.Where(u => u.user_id == id).SingleOrDefault();
-                if (Foto != null)
-                {
-                    if (System.IO.File.Exists(Server.MapPath(uyes.userResim)))
-                    {
-                        System.IO.File.Delete(Server.MapPath(uyes.userResim));
-                    }
-                    WebImage img = new WebImage(Foto.InputStream);
-                    FileInfo fotoinfo = new FileInfo(Foto.FileName);
-
-                    string newfoto = Guid.NewGuid().ToString() + fotoinfo.Extension;
-                    img.Resize(800, 350);
-                    img.Save("~/Uploads/UyeFoto/" + newfoto);
-                    uyes.userResim = "/Uploads/UyeFoto/" + newfoto;
-                }
                 uyes.userAd = uye.userAd;
                 uyes.userSoyad = uye.userSoyad;
                 uyes.userEmail = uye.userEmail;
                 uyes.userKulAdi = uye.userKulAdi;
                 uyes.userSifre =Crypto.Hash(md5pass, "MD5");
-                uyes.userAdres = uye.userAdres;
-                uyes.userHakkinda = uye.userHakkinda;
-                uyes.userDogumTarihi = uye.userDogumTarihi;
                 uyes.userRole = uye.userRole;
-                uyes.userAktive = uye.userAktive;
+                uyes.userActive = uye.userActive;
                 db.SaveChanges();
                 TempData["Message"] = Alert("Kullanıcı güncellendi.", true);
                 return RedirectToAction("Users", "Admin", new { id = uyes.user_id });
@@ -166,7 +136,7 @@ namespace CvSite.Controllers
         public JsonResult UserState(int id)
         {
             User user = db.Users.Where(x => x.user_id == id).FirstOrDefault();
-            user.userAktive = !user.userAktive;
+            user.userActive = !user.userActive;
             //user.Job = db.Job.Where(x=>x.Id == user.Job.Id).FirstOrDefault();
             user.userSifre = user.userSifre;
             db.SaveChanges();
