@@ -1,0 +1,28 @@
+﻿<div class="col-md-12">
+    <div class="resume-title">
+        <h3>Experience</h3>
+    </div>
+    <div class="resume">
+        <ul class="timeline">
+@foreach (CvSite.Models.Experience item in ViewBag.expe)
+{
+            <li class="timeline-inverted">
+                <div class="posted-date">
+                    <span class="month">@item.expe_giris_tarihi-@item.expe_cikis_tarihi</span>
+                </div><!-- /posted-date -->
+                <div class="timeline-panel wow fadeInUp">
+                    <div class="timeline-content">
+                        <div class="timeline-heading">
+                            <h3>@item.expe_ad</h3>
+                            <span>@item.expe_konum</span>
+                        </div><!-- /timeline-heading -->
+                        <div class="timeline-body">
+                            <p>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend.</p>
+                        </div><!-- /timeline-body -->
+                    </div> <!-- /timeline-content -->
+                </div> <!-- /timeline-panel -->
+            </li>
+}
+        </ul>
+    </div>
+</div>

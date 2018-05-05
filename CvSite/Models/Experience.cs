@@ -29,5 +29,9 @@ namespace CvSite.Models
 
         [StringLength(50)]
         public string expe_cikis_tarihi { get; set; }
+
+        public int? uye_id { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

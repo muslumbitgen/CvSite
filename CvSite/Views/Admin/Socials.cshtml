@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CvSite.Models.Social>
+
+@{
+    ViewBag.Title = "Socials";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@if (TempData.Count > 0 && !String.IsNullOrEmpty(TempData["Message"].ToString()))
+{
+    @Html.Raw(TempData["Message"]);
+}
+<h2>Sosyal Medya Bilgileri</h2>
+<p>
+    @Html.ActionLink("Yeni Sosyal Medya Bilgileri Oluştur", "CreateSocial")
+</p>
+<div class="table-responsive">
+
+
+    <table class="table table-striped">
+        <tr>
+            <th>Adı</th>
+            <th>URL</th>
+            <th>İşlem</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.sos_adi</td>
+                <td>@item.sos_Url</td>
+                <td>@Html.ActionLink("Düzenle", "EditSocial", new { id = item.sos_id }) | @Html.ActionLink("Sil", "DeleteSocial", new { id = item.sos_id }, new { onclick = "return confirm('Sosyal Medya Bilgileriniz silinecek. Emin misin?');" })</td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,45 @@
+﻿@foreach (CvSite.Models.Resume item in ViewBag.hakkimda)
+{
+<section id="about" class="about-section section-padding">
+    <div class="container">
+        <h2 class="section-title wow fadeInUp">Hakkımda</h2>
+        <div class="row">
+            <div class="col-md-4 col-md-push-8">
+                <div class="biography">
+                    <div class="myphoto">
+                       
+                         <a href="~/Uploads/ProjeFoto/@item.res_resim"><img src="@item.res_resim" alt="@item.User.userAd"></a>
+                       
+                       
+                    </div>
+                    <ul>
+                        <li><strong>Adı:</strong>@item.User.userAd  @item.User.userSoyad</li>
+                        <li><strong>Doğum tarihi:</strong> @item.res_dogum_tarihi</li>
+                        <li><strong>Adres:</strong> @item.res_adres</li>
+                        <li><strong>Email Adresi:</strong>@item.User.userEmail</li>
+                    </ul>
+                </div>
+            </div> <!-- col-md-4 -->
+            <div class="col-md-8 col-md-pull-4">
+            
+                <div class="short-info wow fadeInUp">
+                    <h3>NE YAPARIM ?</h3>
+                    <p>@item.res_hakkimda</p>
+                    <ul class="list-check">
+                        @foreach (var hobi in @item.User.Hobis.ToList())
+                        {
+                            <li>@hobi.hob_adi</li>
+                        }
+                    </ul>
+                </div>
+             
+                <div class="download-button">
+                    <a class="btn btn-info btn-lg" href="#contact"><i class="fa fa-paper-plane"></i>Send me message</a>
+                    <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-download"></i>download my cv</a>
+                </div>
+            </div>
+
+        </div> <!-- /.row -->
+    </div> <!-- /.container -->
+</section>
+}

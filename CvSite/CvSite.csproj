@@ -187,7 +187,6 @@
     <Content Include="Content\images\ico\apple-touch-icon-57-precomposed.png" />
     <Content Include="Content\images\ico\apple-touch-icon-72-precomposed.png" />
     <Content Include="Content\images\ico\favicon.png" />
-    <Content Include="Content\images\index.html" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\myphoto.jpg" />
     <Content Include="Content\images\photo-frame.png" />
@@ -242,7 +241,10 @@
     <Compile Include="Models\CVSiteDB.cs" />
     <Compile Include="Models\Education.cs" />
     <Compile Include="Models\Experience.cs" />
+    <Compile Include="Models\Hobi.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\ProjectCategory.cs" />
     <Compile Include="Models\Resume.cs" />
     <Compile Include="Models\Skill.cs" />
     <Compile Include="Models\Social.cs" />
@@ -325,6 +327,31 @@
     <Content Include="Views\Admin\Experiences.cshtml" />
     <Content Include="Views\Admin\CreateExperiences.cshtml" />
     <Content Include="Views\Admin\EditExperiences.cshtml" />
+    <Content Include="Views\Admin\Projects.cshtml" />
+    <Content Include="Views\Admin\CreateProjects.cshtml" />
+    <Content Include="Views\Admin\EditProjects.cshtml" />
+    <Content Include="Views\Admin\ProjectsCategory.cshtml" />
+    <Content Include="Views\Admin\CreateProjectsCategory.cshtml" />
+    <Content Include="Views\Admin\EditProjectsCategory.cshtml" />
+    <Content Include="Views\Admin\Socials.cshtml" />
+    <Content Include="Views\Admin\CreateSocial.cshtml" />
+    <Content Include="Views\Admin\EditSocial.cshtml" />
+    <Content Include="Views\Admin\Messege.cshtml" />
+    <Content Include="Views\Partials\Footer.cshtml" />
+    <Content Include="Views\Partials\About.cshtml" />
+    <Content Include="Views\Partials\Resume.cshtml" />
+    <Content Include="Views\Partials\Skills.cshtml" />
+    <Content Include="Views\Partials\Works.cshtml" />
+    <Content Include="Views\Partials\Blog.cshtml" />
+    <Content Include="Views\Partials\Contact.cshtml" />
+    <Content Include="Views\Partials\Home.cshtml" />
+    <Content Include="Views\Partials\Navigation.cshtml" />
+    <Content Include="Views\Partials\SosyalMedya.cshtml" />
+    <Content Include="Views\Admin\Hobis.cshtml" />
+    <Content Include="Views\Admin\CreateHobis.cshtml" />
+    <Content Include="Views\Admin\EditHobis.cshtml" />
+    <Content Include="Views\Partials\Experience.cshtml" />
+    <Content Include="Views\Partials\Education.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -334,8 +361,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\ProjeFoto\" />
     <Folder Include="Uploads\UyeFoto\" />
-    <Folder Include="Views\Partials\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

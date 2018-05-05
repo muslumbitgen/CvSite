@@ -47,3 +47,4 @@ C:\Users\Muslum BITGEN\Desktop\CvSite\CvSite\bin\System.Web.Helpers.xml
 C:\Users\Muslum BITGEN\Desktop\CvSite\CvSite\bin\System.Web.Mvc.xml
 C:\Users\Muslum BITGEN\Desktop\CvSite\CvSite\obj\Debug\CvSite.dll
 C:\Users\Muslum BITGEN\Desktop\CvSite\CvSite\obj\Debug\CvSite.pdb
+C:\Users\Muslum BITGEN\Desktop\CvSite\CvSite\obj\Debug\CvSite.csprojResolveAssemblyReference.cache

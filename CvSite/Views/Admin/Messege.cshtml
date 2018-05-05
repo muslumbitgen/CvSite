@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CvSite.Models.Message>
+
+@{
+    ViewBag.Title = "Messege";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Gelen Mesajlarım</h2>
+<div class="table-responsive">
+<table class="table">
+    <tr>
+        <th>
+           Adı
+        </th>
+        <th>
+            E-posta Adresi
+        </th>
+        <th>
+            Konu
+        </th>
+        <th>
+           Mesaj
+        </th>
+        <th>
+           Tarih
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.mes_adi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mes_email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mes_konu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mes_mesaj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mes_tarihi)
+        </td>
+      
+    </tr>
+}
+
+</table>
+</div>

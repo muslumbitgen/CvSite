@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CvSite.Models.ProjectCategory>
+
+@{
+    ViewBag.Title = "ProjectsCategory";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@if (TempData.Count > 0 && !String.IsNullOrEmpty(TempData["Message"].ToString()))
+{
+    @Html.Raw(TempData["Message"]);
+}
+<h2>Proje Kategori Bilgileri</h2>
+<p>
+    @Html.ActionLink("Yeni Proje Kategori Bilgileri Oluştur", "CreateProjectsCategory")
+</p>
+<div class="table-responsive">
+
+
+    <table class="table table-striped">
+        <tr>
+            <th>Kategori Adı</th>
+            <th>İşlem</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.cat_adi</td>
+                <td>@Html.ActionLink("Düzenle", "EditProjectsCategory", new { id = item.cat_id }) | @Html.ActionLink("Sil", "DeleteProjectsCategory", new { id = item.cat_id }, new { onclick = "return confirm('Proje Kategori Bilgileriniz silinecek. Emin misin?');" })</td>
+            </tr>
+        }
+
+    </table>
+</div>

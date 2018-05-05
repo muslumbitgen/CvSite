@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CvSite.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,12 @@ namespace CvSite.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        CVSiteDB db = new CVSiteDB();
         public ActionResult Index()
         {
             return View();
         }
+       
+
     }
 }

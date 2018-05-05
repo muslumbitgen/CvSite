@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IAMX, One Page Responsive HTML Resume Template">
-    <meta name="keywords" content="onepage, resume, CV HTML template, personal Vcard, html resume, free resume template, free HTML template, free bootstrap template, personal portfolio, free html portfolio">
-    <meta name="author" content="http://trendytheme.net/">
-    <title>IAMX – Responsive Personal Portfolio vCard Template</title>
+    <title>Müslüm BİTGEN</title>
     <!-- Web Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
     <!-- Bootstrap core CSS -->
@@ -41,64 +38,15 @@
         </div>
     </div>
     <!-- Home Section -->
-    <section id="home" class="tt-fullHeight" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.2">
-        <div class="intro">
-            <div class="intro-sub">I am X</div>
-            <h1>Creative <span>Designer</span></h1>
-            <p>I am a fully professional freelance creative User Interface Designer &amp; Developer<br> Involving with latest web designing and technologies is a great <br> feel free to contact creative.</p>
-            <div class="social-icons">
-                <ul class="list-inline">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                </ul>
-            </div> <!-- /.social-icons -->
-        </div>
-        <div class="mouse-icon">
-            <div class="wheel"></div>
-        </div>
-    </section><!-- End Home Section -->
+    @{Html.RenderAction("Home", "Partials");}
+    <!-- End Home Section -->
     <!-- Navigation -->
-    <header class="header">
-        <nav class="navbar navbar-custom" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html"><img src="~/Content/images/logo.png" alt=""></a>
-                </div>
-                <div class="collapse navbar-collapse" id="custom-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#resume">Resume</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#works">Works</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div><!-- .container -->
-        </nav>
-    </header><!-- End Navigation -->
-@RenderBody()
-    <footer class="footer-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="copyright text-center">
-                        <p>&copy; TrendyTheme 2015. All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer><!-- End Footer Section -->
+    @{Html.RenderAction("Navigation", "Partials");}
+    <!-- End Navigation -->
+
+    @RenderBody()
+
+    @{Html.RenderAction("Footer", "Partials");}
     <!-- Scroll-up -->
     <div class="scroll-up">
         <a href="#home"><i class="fa fa-angle-up"></i></a>

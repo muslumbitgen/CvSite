@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CvSite.Models.Hobi>
+
+@{
+    ViewBag.Title = "Hobis";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@if (TempData.Count > 0 && !String.IsNullOrEmpty(TempData["Message"].ToString()))
+{
+    @Html.Raw(TempData["Message"]);
+}
+<h2>Yetenek Bilgileri</h2>
+<p>
+    @Html.ActionLink("Yeni Hobi Bilgileri Oluştur", "CreateHobis")
+</p>
+<div class="table-responsive">
+
+
+    <table class="table table-striped">
+        <tr>
+            <th>Hobi Adı</th>
+            <th>İşlem</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.hob_adi</td>
+                <td>@Html.ActionLink("Düzenle", "EditHobis", new { id = item.hob_id }) | @Html.ActionLink("Sil", "DeleteHobis", new { id = item.hob_id }, new { onclick = "return confirm('Hobi Bilgileriniz silinecek. Emin misin?');" })</td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CvSite.Models.Project>
+
+@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@if (TempData.Count > 0 && !String.IsNullOrEmpty(TempData["Message"].ToString()))
+{
+    @Html.Raw(TempData["Message"]);
+}
+<h2>Proje Bilgileri</h2>
+<p>
+    @Html.ActionLink("Yeni Proje Bilgisi Oluştur", "CreateProjects")
+</p>
+<div class="table-responsive">
+
+
+    <table class="table table-striped">
+        <tr>
+            <th>Proje Adı</th>
+            <th>Tanıtım</th>
+            <th>Resim</th>
+            <th>Kütüphaneler</th>
+            <th>Yapılış Tarihi</th>
+            <th>İşlem</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.pro_ad</td>
+                <td>@item.pro_tanitim</td>
+                <td> <img src="@item.pro_resim" width="75" class="img-circle img-responsive" alt="Alternate Text" /></td>
+                <td>@item.pro_kullanilan_kutuphane</td>
+                <td>@item.pro_tarih</td>
+                <td>@Html.ActionLink("Düzenle", "EditProjects", new { id = item.pro_id }) | @Html.ActionLink("Sil", "DeleteProjects", new { id = item.pro_id }, new { onclick = "return confirm('Proje Bilgileriniz silinecek. Emin misin?');" })</td>
+            </tr>
+        }
+
+    </table>
+</div>

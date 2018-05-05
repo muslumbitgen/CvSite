@@ -1,0 +1,13 @@
+﻿@model IEnumerable<CvSite.Models.Social>
+@{
+    Layout = null;
+}
+<div class="social-icons">
+    <ul class="list-inline">
+        @foreach (var item in Model)
+        {
+            <li><a href="@item.sos_Url"><i class="fa fa-@item.sos_Class" title="@item.sos_adi"></i></a></li>
+        }
+
+    </ul>
+</div> <!-- /.social-icons -->

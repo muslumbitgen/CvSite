@@ -1,0 +1,21 @@
+﻿@model IEnumerable<CvSite.Models.Resume>
+@{
+    Layout = null;
+}
+
+<section id="home" class="tt-fullHeight" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.2">
+    <div class="intro">
+        <div class="intro-sub">Müslüm BİTGEN</div>
+        <h1>Software <span>Engineer</span></h1>
+        @foreach (var item in Model)
+        {
+            <p>@item.res_hakkimda</p>
+
+        }
+        @{Html.RenderAction("SosyalMedya", "Partials");}
+
+    </div>
+    <div class="mouse-icon">
+        <div class="wheel"></div>
+    </div>
+</section>

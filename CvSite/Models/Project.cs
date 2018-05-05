@@ -25,5 +25,13 @@ namespace CvSite.Models
 
         [StringLength(50)]
         public string pro_tarih { get; set; }
+
+        public int? uye_id { get; set; }
+
+        public int? cat_id { get; set; }
+
+        public virtual ProjectCategory ProjectCategory { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

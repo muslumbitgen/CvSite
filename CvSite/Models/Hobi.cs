@@ -6,17 +6,16 @@ namespace CvSite.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Skill
+    [Table("Hobi")]
+    public partial class Hobi
     {
         [Key]
-        public int skill_id { get; set; }
+        public int hob_id { get; set; }
 
         [StringLength(50)]
-        public string skill_ad { get; set; }
+        public string hob_adi { get; set; }
 
-        public int? skill_oran { get; set; }
-
-        public int? uye_id { get; set; }
+        public int? user_id { get; set; }
 
         public virtual User User { get; set; }
     }

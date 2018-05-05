@@ -1,0 +1,33 @@
+﻿@model CvSite.Models.Hobi
+
+@{
+    ViewBag.Title = "EditHobis";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Hobi Güncelle</h2>
+
+@using (Html.BeginForm("EditHobis", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.hob_id)
+
+        <div class="form-group">
+            @Html.Label("Hobi Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.hob_adi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.hob_adi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Hobi Güncelle" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
